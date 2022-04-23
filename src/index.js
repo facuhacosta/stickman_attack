@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 //Routes
-app.use('/', require('./routes/mainroute'))
+app.use('/api', require('./routes/mainroute'))
 
 //Static files
 app.use(express.static(path.join(__dirname, 'public')))
