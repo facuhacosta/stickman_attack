@@ -7,12 +7,16 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "webpack": "webpack --mode development --watch",
-    "create-component": "node src/utils/create_component"
+    "create-component": "node src/utils/create_component",
+    "test": "jest --env=jsdom --config ./jest.config.js",
+    "test:coverage": "jest --env=jsdom --colors --config ./jest.config.js --coverage --collectCoverage --coverageDirectory=\"./src/tests/coverage\" --ci"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@testing-library/dom": "^8.13.0",
+    "@testing-library/jest-dom": "^5.16.4",
     "express": "^4.17.3",
     "express-myconnection": "^1.0.4",
     "morgan": "^1.10.0",
@@ -23,8 +27,10 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@testing-library/react": "^13.1.1",
+    "babel-jest": "^27.5.1",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "jest": "^27.5.1",
     "nodemon": "^2.0.15",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
