@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Description from './description';
+import { Description } from './description';
 
 describe('Description Component', () => {
 

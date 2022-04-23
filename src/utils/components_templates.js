@@ -32,7 +32,7 @@ exports.test = name => {
   return (
 `import React from 'react';
 import { render } from '@testing-library/react';
-import ${capitalizedName} from './${name}';\n
+import { ${capitalizedName} } from './${name}';\n
 describe('${capitalizedName} Component', () => {\n
   // Matching Snapshots
   test('it should match the snapshot', () => {
