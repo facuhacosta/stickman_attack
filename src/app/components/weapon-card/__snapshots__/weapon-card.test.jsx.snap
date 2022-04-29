@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeaponCard Component it should match the snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <p />
+    <p />
+    <p />
+    <p />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`WeaponCard Component it should match the snapshot 2 1`] = `
+<DocumentFragment>
+  <div>
+    <p>
+      pistol
+    </p>
+    <p>
+      5
+    </p>
+    <p>
+      10
+    </p>
+    <p>
+      100
+    </p>
+  </div>
+</DocumentFragment>
+`;

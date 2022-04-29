@@ -30,6 +30,12 @@ module.exports = {
           "sass-loader",
         ],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|tiff|mp4|webm)$/,
+        use: [
+          'file-loader?name=assets/[name].[ext]'
+        ]
+      }
     ],
   },
   resolve: {

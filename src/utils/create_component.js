@@ -26,7 +26,7 @@ fs.writeFile(`${dir}/${name}.module.scss`, style(name), writeFileErrorHandler);
 // test.jsx
 fs.writeFile(`${dir}/${name}.test.jsx`, test(name), writeFileErrorHandler);
 // index.tsx
-fs.writeFile(`${dir}/index.ts`, barrel(name), writeFileErrorHandler);
+fs.writeFile(`${dir}/index.js`, barrel(name), writeFileErrorHandler);
 
 ////////////////
 /// Optional ///

@@ -1,12 +1,12 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Description } from './description';
+import { HealthBar } from './health-bar';
 
-describe('Description Component', () => {
+describe('HealthBar Component', () => {
 
   // Matching Snapshots
   test('it should match the snapshot', () => {
-    const { asFragment } = render(<Description />);
+    const { asFragment } = render(<HealthBar />);
     expect(asFragment()).toMatchSnapshot();
   });
 

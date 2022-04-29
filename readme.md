@@ -1,7 +1,15 @@
 # Stick-man Atack
 
+## Index #section
+
+- [Installation](#installation)
+    - [Download the Repository](#1-download-the-repository)
+    - [Create Database](#2-create-the-database)
+    - [Install Dependencies and Run](#3-install-dependencies-and-run-the-app)
+- [Util Scripts](#util-scripts)
+- [How to Play](#how-to-play)
+
 ## Installation
----
 
 ### 1. Download the repository
 You can clone the repository executing the code below:
@@ -72,7 +80,6 @@ you'll recive this mesage for console:
 now open [http://localhost:3000/](http://localhost:3000/) in your browser to play the game.
 
 ## Util scripts
----
 
 * Install all project dependencies:
     ```node
@@ -105,4 +112,3 @@ now open [http://localhost:3000/](http://localhost:3000/) in your browser to pla
     should be completly in lower case, It'll create a component folder with default files containing example code
 
 ## How to play
----

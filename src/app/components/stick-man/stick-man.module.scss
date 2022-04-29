@@ -1,0 +1,24 @@
+.stick-man {
+  position: absolute;
+  animation: move 5s linear;
+  animation-fill-mode: forwards;
+  width: 50px;
+  visibility: hidden;
+  &-video {
+    width: 50px;
+
+  }
+}
+
+@keyframes move {
+
+  0% {
+    transform: translateX(-100px);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateX(70vw);
+    visibility: visible;
+  }
+}

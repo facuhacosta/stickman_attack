@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Field Component it should match the snapshot 1`] = `
+<DocumentFragment>
+  <div />
+</DocumentFragment>
+`;
