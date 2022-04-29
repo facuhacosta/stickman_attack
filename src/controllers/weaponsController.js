@@ -53,6 +53,7 @@ controller.list = (req, res) => {
         res.json(err);
       };
       res.send(weapons);
+      console.log(weapons);
     });
   });
 };

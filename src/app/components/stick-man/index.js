@@ -1,0 +1,1 @@
+export { StickMan } from './stickMan';
