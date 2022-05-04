@@ -28,7 +28,8 @@ export const generateWave = (enemies, enemies_proximity, wave_size) => {
       key: index,
       type: `${enemyPreset}`,
       position: `${positionPreset}`,
-      delay: delayPreset
+      delay: delayPreset,
+      status: true
     });
   };
   return wavePreset;

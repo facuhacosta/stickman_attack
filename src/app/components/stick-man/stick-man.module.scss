@@ -1,12 +1,16 @@
 .stick-man {
   position: absolute;
-  animation: move 5s linear;
+  animation: move 10s linear;
   animation-fill-mode: forwards;
   width: 50px;
   visibility: hidden;
   &-video {
     width: 50px;
 
+  }
+
+  &-dead {
+    display: none;
   }
 }
 

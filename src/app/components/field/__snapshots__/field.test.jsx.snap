@@ -2,6 +2,258 @@
 
 exports[`Field Component it should match the snapshot 1`] = `
 <DocumentFragment>
-  <div />
+  <div>
+    <div>
+      <div>
+        <div>
+          <div
+            style="width: 100%;"
+          />
+          <span>
+            1000
+          </span>
+        </div>
+      </div>
+      <img
+        alt="castle"
+        src="[object Object]"
+      />
+    </div>
+    <div>
+      <span>
+        0
+      </span>
+      <div
+        class="undefined"
+        style="bottom: 15%; animation-delay: 0s;"
+      >
+        <div>
+          <div
+            style="width: 100%;"
+          />
+          <span>
+            200
+          </span>
+        </div>
+        <video
+          autoplay=""
+          data-testid="stickman-testId"
+          loop=""
+        >
+          <source
+            src="[object Object]"
+            type="video/webm"
+          />
+        </video>
+      </div>
+      <div
+        class="undefined"
+        style="bottom: 15%; animation-delay: 6s;"
+      >
+        <div>
+          <div
+            style="width: 100%;"
+          />
+          <span>
+            100
+          </span>
+        </div>
+        <video
+          autoplay=""
+          data-testid="stickman-testId"
+          loop=""
+        >
+          <source
+            src="[object Object]"
+            type="video/webm"
+          />
+        </video>
+      </div>
+      <div
+        class="undefined"
+        style="bottom: 40%; animation-delay: 4s;"
+      >
+        <div>
+          <div
+            style="width: 100%;"
+          />
+          <span>
+            200
+          </span>
+        </div>
+        <video
+          autoplay=""
+          data-testid="stickman-testId"
+          loop=""
+        >
+          <source
+            src="[object Object]"
+            type="video/webm"
+          />
+        </video>
+      </div>
+      <div
+        class="undefined"
+        style="bottom: 85%; animation-delay: 7s;"
+      >
+        <div>
+          <div
+            style="width: 100%;"
+          />
+          <span>
+            100
+          </span>
+        </div>
+        <video
+          autoplay=""
+          data-testid="stickman-testId"
+          loop=""
+        >
+          <source
+            src="[object Object]"
+            type="video/webm"
+          />
+        </video>
+      </div>
+      <div
+        class="undefined"
+        style="bottom: 30%; animation-delay: 0s;"
+      >
+        <div>
+          <div
+            style="width: 100%;"
+          />
+          <span>
+            200
+          </span>
+        </div>
+        <video
+          autoplay=""
+          data-testid="stickman-testId"
+          loop=""
+        >
+          <source
+            src="[object Object]"
+            type="video/webm"
+          />
+        </video>
+      </div>
+      <div
+        class="undefined"
+        style="bottom: 25%; animation-delay: 3s;"
+      >
+        <div>
+          <div
+            style="width: 100%;"
+          />
+          <span>
+            400
+          </span>
+        </div>
+        <video
+          autoplay=""
+          data-testid="stickman-testId"
+          loop=""
+        >
+          <source
+            src="[object Object]"
+            type="video/webm"
+          />
+        </video>
+      </div>
+      <div
+        class="undefined"
+        style="bottom: 0%; animation-delay: 7s;"
+      >
+        <div>
+          <div
+            style="width: 100%;"
+          />
+          <span>
+            400
+          </span>
+        </div>
+        <video
+          autoplay=""
+          data-testid="stickman-testId"
+          loop=""
+        >
+          <source
+            src="[object Object]"
+            type="video/webm"
+          />
+        </video>
+      </div>
+      <div
+        class="undefined"
+        style="bottom: 45%; animation-delay: 4s;"
+      >
+        <div>
+          <div
+            style="width: 100%;"
+          />
+          <span>
+            100
+          </span>
+        </div>
+        <video
+          autoplay=""
+          data-testid="stickman-testId"
+          loop=""
+        >
+          <source
+            src="[object Object]"
+            type="video/webm"
+          />
+        </video>
+      </div>
+      <div
+        class="undefined"
+        style="bottom: 80%; animation-delay: 1s;"
+      >
+        <div>
+          <div
+            style="width: 100%;"
+          />
+          <span>
+            400
+          </span>
+        </div>
+        <video
+          autoplay=""
+          data-testid="stickman-testId"
+          loop=""
+        >
+          <source
+            src="[object Object]"
+            type="video/webm"
+          />
+        </video>
+      </div>
+      <div
+        class="undefined"
+        style="bottom: 10%; animation-delay: 7s;"
+      >
+        <div>
+          <div
+            style="width: 100%;"
+          />
+          <span>
+            200
+          </span>
+        </div>
+        <video
+          autoplay=""
+          data-testid="stickman-testId"
+          loop=""
+        >
+          <source
+            src="[object Object]"
+            type="video/webm"
+          />
+        </video>
+      </div>
+    </div>
+  </div>
 </DocumentFragment>
 `;

@@ -1,31 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Style from './app.module.scss';
-import { StickMan } from './components/stick-man/stick-man';
-import { WeaponCard } from './components/weapon-card';
-import { StickmanHandler } from './components/stickman-handler';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import { Field } from './components/field'
+import { Store } from './components/store'
+import { Menu } from './components/menu'
 
 function App() {
-  
-  const [data, setData] = useState([]);
-  const enemies ={
-    basic: 60,
-    powered: 30,
-    boss: 10
-  };
-
-  useEffect(() => {
-    fetch('/api')
-      .then(res => res.json())
-      .then(data => setData(data));
-  },[]);
 
   return (
     <div className={Style.app}>
-      <h1>Hola World</h1>
-      {
-        data.length != 0 ? data.map(weapon => <WeaponCard weapon={weapon} key={weapon.id}/>) : ''
-      }
-      <StickmanHandler enemies_proximity={20} enemies={enemies} wave_size={10}/>
+      <BrowserRouter >
+        <Routes >
+          <Route path='/' element={<Menu />} />
+          <Route path='store' element={<Store />} />
+          <Route path='game'  element={<Field />} />
+        </Routes>  
+      </BrowserRouter>
     </div>
   );
 };

@@ -2,12 +2,16 @@
 
 ## Index #section
 
+- [introduction](#introduction)
 - [Installation](#installation)
     - [Download the Repository](#1-download-the-repository)
     - [Create Database](#2-create-the-database)
     - [Install Dependencies and Run](#3-install-dependencies-and-run-the-app)
 - [Util Scripts](#util-scripts)
 - [How to Play](#how-to-play)
+
+## Introduction
+
 
 ## Installation
 
@@ -20,8 +24,8 @@ git clone https://github.com/facuhacosta/stickman_attack.git
 
 1. Go to database folder.
 2. Open **stickman_attack.sql** file and copy its content.
-3. Open your Mysql terminal, paste the code an run it.
-4. Go to **index.js** file within **src** folder and change lines 16 and 17 to match you MySQL user and password respectively ans shown next:
+3. Open your Mysql terminal, paste the code and run it.
+4. Go to **index.js** file within **src** folder and change lines 16 and 17 to match your MySQL user and password respectively as shown next:
 
 ```js
 app.use(myConnection(mysql, {
@@ -33,7 +37,7 @@ app.use(myConnection(mysql, {
 }, 'single'));
 ```
 
-This code populates the database with basic values, You can create your own databse if you like using the folowing structure.
+This code populates the database with basic values, You can create your own databse if you like using the folowing structure as an example.
 
 ```sql
 CREATE TABLE users (
@@ -75,7 +79,9 @@ and
 ```node
 npm run dev
 ```
-you'll recive this mesage for console:
+you'll recive a mesage for console similar to this:
+
+![server started](./src/public/assets/server_started.JPG)
 
 now open [http://localhost:3000/](http://localhost:3000/) in your browser to play the game.
 
