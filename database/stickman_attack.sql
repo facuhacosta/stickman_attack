@@ -3,7 +3,7 @@ CREATE DATABASE stickman_attack_db;
 use stickman_attack_db;
 
 CREATE TABLE users (
-  id int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  id int(10) AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(20) UNIQUE NOT NULL,
   password VARCHAR(60) NOT NULL,
   score int(5) UNSIGNED DEFAULT 0,
@@ -11,7 +11,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE enemies (
-  id int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  id int(6) AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(20) UNIQUE NOT NULL,
   health int(5) NOT NULL DEFAULT 100,
   damage int(5) NOT NULL DEFAULT 5,
@@ -22,7 +22,7 @@ CREATE TABLE enemies (
 );
 
 CREATE TABLE weapons (
-  id int(6)  UNIQUE AUTO_INCREMENT PRIMARY KEY,
+  id int(6) AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(20) NOT NULL,
   damage int(5) UNSIGNED DEFAULT 10,
   attack_speed DECIMAL(2, 2) NOT NULL DEFAULT (01.00),

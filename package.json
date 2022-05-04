@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "dev": "set NODE_ENV=DEVELOPMENT && nodemon src/index.js",
     "webpack": "webpack --mode development --watch",
-    "build": "webpack --mode deployment",
+    "build": "webpack --mode production",
     "create-component": "node src/utils/create_component",
     "test": "jest --env=jsdom --config ./jest.config.js",
     "test:coverage": "jest --env=jsdom --colors --config ./jest.config.js --coverage --collectCoverage --coverageDirectory=\"./src/tests/coverage\" --ci"
@@ -16,10 +16,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
-    "express-myconnection": "^1.0.4",
     "morgan": "^1.10.0",
-    "mysql": "^2.18.1"
+    "pg": "^8.7.3"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",

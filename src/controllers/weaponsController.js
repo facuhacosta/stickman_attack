@@ -1,45 +1,36 @@
+const pool = require('../database');
+
 const controller = {};
 
-
-controller.delete = (req, res) => {
+controller.delete = async (req, res) => {
   const {id} = req.params;
-  req.getConnection((err, conn) => {
-    conn.query('DELETE FROM weapons WHERE id = ?', [id], (err, rows) => {
-      if (err) {
-        res.json(err);
-      };
-      res.send({status: 'OK'});
-    });
+  pool.query('DELETE FROM "WEAPONS" WHERE id = $1', [id], (err, result) => {
+    if (err) {
+      res.json(err);
+    };
+    res.send({status: 'OK'});
   });
 };
 
 controller.save = (req, res) => {
   const data = req.body;
   console.log(req.body);
-  req.getConnection((err, conn) => {
+  pool.query('INSERT INTO "WEAPONS" SET $1', [data], (err, result) => {
     if (err) {
       res.send(err);
     };
-    conn.query('INSERT INTO weapons set ?', [data], (err, weapon) => {
-      if (err) {
-        res.send(err);
-      };
-      console.log(weapon);
-      res.send(weapon);
-    });
+    console.log(result);
+    res.send(result);
   });
 };
 
 controller.listOne = (req, res) => {
   const { id } = req.params;
-
-  req.getConnection((err, conn) => {
-    conn.query('SELECT * FROM weapons WHERE id = ?', [id], (err, weapon) => {
-      if (err) {
-        res.json(err);
-      };
-      res.send(weapon[0]);
-    });
+  pool.query('SELECT * FROM "WEAPONS" WHERE id = $1', [id], (err, result) => {
+    if (err) {
+      res.json(err);
+    };
+    res.send(result.rows[0]);
   });
 };
 
@@ -47,31 +38,24 @@ controller.list = (req, res) => {
   const { id } = req.params;
   const data = req.body;
 
-  req.getConnection((err, conn) => {
-    conn.query('SELECT * FROM weapons', (err, weapons) => {
-      if (err) {
-        res.json(err);
-      };
-      res.send(weapons);
-      console.log(weapons);
-    });
+  pool.query('SELECT * FROM "WEAPONS"', (err, result) => {
+    if (err) {
+      res.json(err);
+    };
+    res.send(result.rows);
+    console.log(result.rows);
   });
 };
 
 controller.update = (req, res) => {
   const data = req.body;
   console.log(req.body);
-  req.getConnection((err, conn) => {
+  pool.query('INSERT INTO "WEAPONS" set ?', [data], (err, result) => {
     if (err) {
       res.send(err);
     };
-    conn.query('INSERT INTO weapons set ?', [data], (err, weapon) => {
-      if (err) {
-        res.send(err);
-      };
-      console.log(weapon);
-      res.send(weapon);
-    });
+    console.log(result);
+    res.send(result);
   });
 };
 
