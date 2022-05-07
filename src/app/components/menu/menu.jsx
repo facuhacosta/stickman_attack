@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import User from '../../../public/assets/user.png'
 import MiniCastle from '../../../public/assets/castlepixelart.png'
 import Weapon from '../../../public/assets/weapon.png'
 import style from './menu.module.scss';
+import { LoadingScreen } from '../loading-screen';
+import { GameContext } from '../game-context/game-context';
+import { Button } from '../button';
   
 export function Menu() {
 
   const state = useLocation().state
   const [initialData, setInitialData] = useState('FIRSTRENDER');
+  const [animationDone, setAnimationDone] = useState(false);
+  const { waveNumber } = useContext(GameContext);
   let navigate = useNavigate()
 
   useEffect(() => {
@@ -26,7 +31,7 @@ export function Menu() {
           <section>
             <h2>User Name</h2>
             <p>Money: 300</p>
-            <p>Max Waves: 8</p>
+            <p>Max Waves: {waveNumber - 1}</p>
           </section>
         </div>
         <div className={style['weapon']}>
@@ -52,6 +57,7 @@ export function Menu() {
         <button className={style['button']}>EQUIP</button>
         <button className={style['button']} onClick={() => navigate('/game/', {replace: true})}>PLAY</button>
       </div>
+      <LoadingScreen cameFrom={state?.cameFrom} cameWith={state?.cameWith} />
     </div>
   );
 }

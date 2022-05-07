@@ -1,5 +1,68 @@
 .weapon-card {
-  border: 3px solid red;
-  border-radius: 20px;
-  background-color: blue;
+  width: 250px;
+  height: 300px;
+  border-radius: 10px;
+  background-color: gainsboro;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  
+  .weapon-image {
+    background-color: transparent;
+    width: 100%;
+    height: 50%;
+    border-radius: 10px;
+    border: solid 1px black;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 5px;
+    }
+  }
+
+  .weapon-name {
+    padding: 4px 0;
+    text-align: center;
+  }
+
+  .weapon-info {
+    border: solid 1px black;
+    .weapon-attr {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px black dotted;
+      padding: 2px 5px;
+
+      &:nth-last-child(1) {
+        border-bottom: none;
+      }
+
+      & > p:nth-last-child(1) {
+        width: 50px;
+        text-align: right;
+        background-color: grey;
+      }
+    }
+  }
+
+  .weapon-button {
+    background-color: greenyellow;
+    width: 150px;
+    height: 30px;
+    margin: auto;
+    border-radius: 5px;
+    transition: all 0.1s linear;
+    border: none;
+    font-weight: 900;
+    margin-top: 10px;
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: rgb(106, 211, 106);
+      transition: all 0.1s linear;
+      font-weight: bolder;
+    }
+  }
 }

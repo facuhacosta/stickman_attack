@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 const weaponsController = require('../controllers/weaponsController');
 
-router.get('/', weaponsController.list);
+router.get('/weapons', weaponsController.list);
 
-router.post('/', weaponsController.save);
+router.post('/weapons', weaponsController.save);
 
-router.get('/delete/:id', weaponsController.delete);
+router.get('/weapons/delete/:id', weaponsController.delete);
 
-router.get('/update/:id', weaponsController.listOne);
+router.get('/weapons/:id', weaponsController.listOne);
 
-router.post('/update/:id', weaponsController.update);
+router.post('/weapons/update/:id', weaponsController.update);
 
 module.exports = router
