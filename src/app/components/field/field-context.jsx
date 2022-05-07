@@ -1,6 +1,8 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import gif from '../../../public/assets/man.webm' //make it came from prop or context
+import { GameContext } from "../game-context/game-context";
+import { generateWave } from './create-wave-methods' 
 
 export const FieldContext = createContext();
 
@@ -9,9 +11,9 @@ export const FieldProvider = (props) => {
   const [castleHealth, setCastleHealth] = useState(1000);
   const [gameOver, setGameOver] = useState(false);
   const [enemiesProb, setEnemiesProb] = useState({
-    basic: 60,
-    powered: 30,
-    boss: 10
+    basic: 70,
+    powered: 25,
+    boss: 5
   });
   let navigate = useNavigate();
   const [enemies, setEnemies] = useState(() => {
@@ -45,11 +47,14 @@ export const FieldProvider = (props) => {
   });
 
   const enemies_proximity = 20;
-  const wave_size = 10;
+  const { waveNumber, setWaveNumber } = useContext(GameContext);
+
+  const [wave, setWave] = useState(generateWave(enemiesProb, enemies_proximity, waveNumber));
 
   useEffect(() => {
     if (castleHealth <= 0 && !gameOver) {
       setGameOver(true);
+      setWaveNumber(1);
       castleHealth <= 0 && navigate('/', { replace: true, state: {cameFrom: 'GAME' ,cameWith: 'GAMEOVER'} })
     }
   }, [castleHealth])
@@ -59,12 +64,13 @@ export const FieldProvider = (props) => {
       enemies: enemies,
       enemiesProb: enemiesProb,
       enemies_proximity: enemies_proximity,
-      wave_size: wave_size,
       points: points,
       setPoints: setPoints,
       castleHealth: castleHealth,
       setCastleHealth: setCastleHealth,
-      gameOver: gameOver
+      gameOver: gameOver,
+      wave: wave,
+      setWave: setWave
     }} >
       {props.children}
     </FieldContext.Provider>

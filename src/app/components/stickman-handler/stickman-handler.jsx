@@ -1,20 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { StickMan } from '../stick-man/stick-man';
 import style from './stickman-handler.module.scss';
-import { generateWave } from './util-methods';
 import { FieldContext } from '../field/field-context';
+import { GameContext } from '../game-context/game-context';
 import { useNavigate } from 'react-router-dom';
   
 export function StickmanHandler() {
 
-  const { enemies,enemiesProb, enemies_proximity, wave_size, setPoints, points } = useContext(FieldContext);
-
-  const [wave, setWave] = useState(generateWave(enemiesProb, enemies_proximity, wave_size));
-
+  const { enemies, wave, setWave, setPoints, points } = useContext(FieldContext);
+  const { setWaveNumber } = useContext(GameContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (wave.every(el => el.status === false)) {
+      setWaveNumber(prev => prev + 1);
       navigate('/', { replace: true, state: { cameFrom: 'GAME' ,cameWith: 'WIN' }});
     }
   },[wave]);
