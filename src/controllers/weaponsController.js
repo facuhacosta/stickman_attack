@@ -1,63 +1,79 @@
 const pool = require('../database');
+const jwt = require('jsonwebtoken');
 
-const controller = {};
+const weaponsController = {};
 
-controller.delete = async (req, res) => {
+weaponsController.delete = async (req, res) => {
   const {id} = req.params;
-  pool.query('DELETE FROM "WEAPONS" WHERE id = $1', [id], (err, result) => {
-    if (err) {
-      res.json(err);
-    };
-    res.send({status: 'OK'});
-  });
+  try {
+    const {rows} = await pool.query('DELETE FROM "WEAPONS" WHERE id = $1', [id]);
+    console.log(rows);
+    if (rows) {
+      res.send(rows);
+    } else {
+      res.status(400).json({error: 'item not found'})
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-controller.save = (req, res) => {
+weaponsController.save = async (req, res) => {
   const data = Object.values(req.body);
-  console.log(req.body);
-  pool.query('INSERT INTO "WEAPONS"(name, damage, attack_speed, bullets, value, image) VALUES ($1, $2, $3 , $4 , $5, $6)', [...data], (err, result) => {
-    if (err) {
-      res.send(err);
-    };
-    console.log(result.rows);
-    res.send(result.rows);
-  });
+  const authorization = req.get('authorization');
+  let token = '';
+  
+  if (authorization && authorization.toLowerCase().startsWith('bearer')) {
+    token = authorization.substring(7);
+  };
+  console.log(token);
+  let decodedToken = {}
+  try {
+    decodedToken = jwt.verify(token, process.env.SECRET);
+  } catch (e) {
+    console.log(e);
+  }
+  console.log(decodedToken);
+  if (!token || !decodedToken.user_id || !decodedToken.is_admin) {
+    return res.status(401).json({error: 'token missing or invalid'})
+  }
+
+  try {
+    const { rows } = await pool.query('INSERT INTO "WEAPONS"(name, damage, attack_speed, bullets, value, image) VALUES ($1, $2, $3 , $4 , $5, $6)', [...data])
+    res.status(200).send();
+  } catch (error) {
+    res.send(err);
+  }
+
 };
 
-controller.listOne = (req, res) => {
+weaponsController.listOne = async (req, res) => {
   const {id} = req.params;
-  console.log(req.params);
-  pool.query('SELECT * FROM "WEAPONS" WHERE id = $1', [id], (err, result) => {
-    if (err) {
-      res.json(err);
-    };
-    res.send(result.rows[0]);
-  });
+  try {
+    const { rows } = await pool.query('SELECT * FROM "WEAPONS" WHERE id = $1', [id])
+    res.send(rows[0]);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-controller.list = (req, res) => {
-  const { id } = req.params;
-  const data = req.body;
-
-  pool.query('SELECT * FROM "WEAPONS" ORDER BY id', (err, result) => {
-    if (err) {
-      res.json(err);
-    };
-    res.send(result.rows);
-    // console.log(result.rows);
-  });
+weaponsController.list = async (req, res) => {
+  try {
+    const { rows } = await pool.query('SELECT * FROM "WEAPONS" ORDER BY value');
+    res.send(rows);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
-controller.update = (req, res) => {
-  const data = req.body;
-  console.log(req.body);
-  pool.query('INSERT INTO "WEAPONS" set ?', [data], (err, result) => {
-    if (err) {
-      res.send(err);
-    };
-    console.log(result);
-    res.send(result);
-  });
+weaponsController.update = async (req, res) => {
+  const data = Object.values(req.body);
+  try {
+    const {rows} = await pool.query('UPDATE "WEAPONS" SET name=$2, damage=$3, attack_speed=$4, bullets=$5, value=$6, image=$7 WHERE id=$1', [...data])
+    res.send(rows);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
-module.exports = controller;
+module.exports = weaponsController;

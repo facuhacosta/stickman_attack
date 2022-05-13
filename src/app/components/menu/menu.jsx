@@ -13,11 +13,10 @@ export function Menu() {
   const state = useLocation().state
   const [initialData, setInitialData] = useState('FIRSTRENDER');
   const [animationDone, setAnimationDone] = useState(false);
-  const { waveNumber } = useContext(GameContext);
+  const { money, waveNumber, user } = useContext(GameContext);
   let navigate = useNavigate()
 
   useEffect(() => {
-    console.log(initialData);
     state !== 'null' ? setInitialData(state?.cameWith) : setInitialData('FIRSTRENDER')
   }, [,state]);
 
@@ -29,9 +28,9 @@ export function Menu() {
         <div className={style['profile']}>
           <img src={User} alt="" />
           <section>
-            <h2>User Name</h2>
-            <p>Money: 300</p>
-            <p>Max Waves: {waveNumber - 1}</p>
+            <h2>{user.username}</h2>
+            <p>Money: {money}</p>
+            <p>Max Waves: {waveNumber}</p>
           </section>
         </div>
         <div className={style['weapon']}>
@@ -53,9 +52,9 @@ export function Menu() {
         </div>
       </div>
       <div className={style['actions']}>
-        <button className={style['button']} onClick={() => navigate('/store/', { replace: true })}>STORE</button>
+        <button className={style['button']} onClick={() => navigate('/store', { replace: true })}>STORE</button>
         <button className={style['button']}>EQUIP</button>
-        <button className={style['button']} onClick={() => navigate('/game/', {replace: true})}>PLAY</button>
+        <button className={style['button']} onClick={() => navigate('/field', {replace: true})}>PLAY</button>
       </div>
       <LoadingScreen cameFrom={state?.cameFrom} cameWith={state?.cameWith} />
     </div>

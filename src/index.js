@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const history = require('connect-history-api-fallback')
 const app = express();
 
 
@@ -11,9 +12,11 @@ app.set('port', process.env.PORT || 3000);
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(history());
 
 //Routes
-app.use('/api', require('./routes/mainroute'))
+app.use('/api/weapons', require('./routes/weaponRoutes'))
+app.use('/user', require('./routes/userRoutes'))
 
 //Static files
 app.use(express.static(path.join(__dirname, 'public')))
