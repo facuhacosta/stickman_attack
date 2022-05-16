@@ -93,4 +93,31 @@ userController.update = async (req, res) => {
   }
 }
 
+userController.victory = async (req, res) => {
+  const authorization = req.get('authorization');
+  const data = Object.values(req.body)
+  let token = '';
+
+  if (authorization && authorization.toLowerCase().startsWith('bearer')) {
+    token = authorization.substring(7);
+  };
+  let decodedToken = {}
+  try {
+    decodedToken = jwt.verify(token, process.env.SECRET);
+  } catch (e) {
+    console.log(e);
+  }
+  if (!token || !decodedToken.user_id || !decodedToken.is_admin) {
+    return res.status(401).json({ error: 'token missing or invalid' })
+  }
+
+  try {
+    const { rows } = pool.query('UPDATE "USERS" SET money=$1, max_waves=$2 WHERE username = $3', [...data, decodedToken.username])
+    res.send(rows[0])
+  } catch (error) {
+    res.send(error)
+  }
+
+}
+
 module.exports = userController

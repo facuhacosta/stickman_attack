@@ -12,7 +12,6 @@ export function Menu() {
 
   const state = useLocation().state
   const [initialData, setInitialData] = useState('FIRSTRENDER');
-  const [animationDone, setAnimationDone] = useState(false);
   const { money, waveNumber, user } = useContext(GameContext);
   let navigate = useNavigate()
 

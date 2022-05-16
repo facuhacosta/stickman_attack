@@ -16,7 +16,7 @@ const generateEnemyType = (enemies) => {
   return (returnValue);
 };
 
-const generateDelay = (wave_duration) => (Math.floor(Math.random() * 10));
+const generateDelay = (wave_duration) => (Math.floor(Math.random() * 100) * (wave_duration / 100));
 
 const generateWaveSetting = (wave_number) => {
   let wave_size = 2;

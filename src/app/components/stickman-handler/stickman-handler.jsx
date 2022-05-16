@@ -4,19 +4,30 @@ import style from './stickman-handler.module.scss';
 import { FieldContext } from '../field/field-context';
 import { GameContext } from '../game-context/game-context';
 import { useNavigate } from 'react-router-dom';
+import ApiService from '../../services/Api';
   
 export function StickmanHandler() {
 
   const { enemies, wave, setWave, setPoints, points } = useContext(FieldContext);
-  const { setWaveNumber } = useContext(GameContext);
+  const { setWaveNumber, setMoney, user, money, waveNumber } = useContext(GameContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (wave.every(el => el.status === false)) {
       setWaveNumber(prev => prev + 1);
-      navigate('/', { replace: true, state: { cameFrom: 'GAME' ,cameWith: 'WIN' }});
+      setMoney(prev => prev + points)
     }
   },[wave]);
+
+  useEffect(() => {
+    if (wave.every(el => el.status === false)) {
+      ApiService.updateUserInVictory(user.token, { money, waveNumber }).then(data => {
+        console.log({ money, waveNumber });
+        console.log({ data });
+        navigate('/', { replace: true, state: { cameFrom: 'GAME', cameWith: 'WIN' } });
+      })
+    }
+  }, [money])
 
   const addPoints = (amount, key) => {
     setPoints(prevValue => prevValue + amount);

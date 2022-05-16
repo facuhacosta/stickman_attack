@@ -6,6 +6,8 @@ router.post('/logIn', userController.logIn);
 
 router.get('/logIn/update', userController.update);
 
+router.post('/victory', userController.victory);
+
 router.post('/SignIn', userController.signIn);
 
 module.exports = router

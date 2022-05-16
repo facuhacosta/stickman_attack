@@ -12,15 +12,14 @@ export const GameProvider= (props) => {
   useEffect(() => {
     if (JSON.parse(window.localStorage.getItem('user'))?.token) {
       try {        
-        logInService.updateUser(JSON.parse(window.localStorage.getItem('user'))?.token)
+        logInService.updateUser(JSON.parse(window.localStorage.getItem('user')).token)
         .then(updatedUser => {
           if (updatedUser.username) {
             setUser(updatedUser)
             window.localStorage.setItem('user', JSON.stringify(updatedUser))
-            setIsAuthenticated(true)
           }})
       } catch (error) {
-        
+        console.log(error);
       }
     }
     

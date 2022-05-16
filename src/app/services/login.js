@@ -1,4 +1,4 @@
-const BASEURL = 'http://localhost:3000/user/login';
+const BASEURL = 'http://localhost:3000/user/login/';
 
 const login = async (body) => {
   return await fetch(BASEURL,
@@ -14,7 +14,7 @@ const login = async (body) => {
 };
 
 const updateUser = async (token) => {
-  return await fetch(BASEURL + '/update',
+  return await fetch(BASEURL + 'update',
     {
       method: 'GET',
       headers: {

@@ -20,6 +20,10 @@ export function WeaponCard({ weapon }) {
           <p>{weapon?.attack_speed}</p>
         </div>
         <div className={style['weapon-attr']}>
+          <p>Bullets:</p>
+          <p>{weapon?.bullets}</p>
+        </div>
+        <div className={style['weapon-attr']}>
           <p>Value:</p>
           <p>${weapon?.value}</p>
         </div>
