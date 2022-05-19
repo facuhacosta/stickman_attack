@@ -1,9 +1,6 @@
-import React from 'react';
-import style from './weapon-card.module.scss';
-  
-export function WeaponCard({ weapon }) {
-
-  
+import React from 'react'
+import style from './weapon-card.module.scss'
+export function WeaponCard ({ weapon }) {
   return (
     <div className={style['weapon-card']}>
       <div className={style['weapon-image']}>
@@ -29,6 +26,6 @@ export function WeaponCard({ weapon }) {
         </div>
       </section>
       <button className={style['weapon-button']}>BUY</button>
-    </div>  
-  );
+    </div>
+  )
 }

@@ -1,18 +1,16 @@
-import React from 'react';
-import Style from './app.module.scss';
-import { GameProvider } from './components/game-context/game-context';
-import { Router } from './components/router';
+import React from 'react'
+import Style from './app.module.scss'
+import { GameProvider } from './components/game-context/game-context'
+import { Router } from './components/router'
 
-
-function App() {
-
+function App () {
   return (
     <div className={Style.app}>
       <GameProvider>
-        <Router/>
+        <Router />
       </GameProvider>
     </div>
-  );
+  )
 };
 
-export default App;
+export default App

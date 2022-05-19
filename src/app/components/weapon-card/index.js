@@ -1,1 +1,1 @@
-export { WeaponCard } from './weapon-card';
+export { WeaponCard } from './weapon-card'

@@ -1,32 +1,45 @@
-const BASEURL = 'http://localhost:3000/user/login/';
+const BASEURL = 'user/'
 
-const login = async (body) => {
-  return await fetch(BASEURL,
+const signup = async (body) => {
+  return await fetch(BASEURL + 'signup',
     {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
       },
       body: JSON.stringify(body)
     })
     .then(res => res.json())
-    .then(data => data);
-};
+    .then(data => data)
+}
+
+const login = async (body) => {
+  return await fetch(BASEURL + 'login',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+    .then(res => res.json())
+    .then(data => data)
+}
 
 const updateUser = async (token) => {
-  return await fetch(BASEURL + 'update',
+  return await fetch(BASEURL + 'login/update',
     {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        "Accept": "application/json",
-        'Authorization': 'Bearer ' + token,
-      },
+        Accept: 'application/json',
+        Authorization: 'Bearer ' + token
+      }
     })
     .then(res => res.json())
-    .then(data => data);
-};
+    .then(data => data)
+}
 
-
-
-export default { login, updateUser };
+export default { signup, login, updateUser }
