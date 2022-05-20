@@ -1,11 +1,10 @@
-import React from 'react';
-import style from './field.module.scss';
-import { StickmanHandler } from '../stickman-handler';
+import React from 'react'
+import style from './field.module.scss'
+import { StickmanHandler } from '../stickman-handler'
 import { Castle } from '../castle'
-import { FieldProvider } from './field-context';
-  
-export function Field() {
+import { FieldProvider } from './field-context'
 
+export function Field () {
   return (
     <div className={style.field}>
       <FieldProvider>
@@ -13,5 +12,5 @@ export function Field() {
         <StickmanHandler />
       </FieldProvider>
     </div>
-  );
+  )
 }

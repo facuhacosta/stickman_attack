@@ -32,4 +32,21 @@ const updateUserInVictory = async (token, body) => {
     })
 }
 
-export default { getWeapons, updateUserInVictory }
+const buyWeapon = async (token, body) => {
+  return await fetch(BASE_USER_URL + 'buyWeapon',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: 'Bearer ' + token
+      },
+      body: JSON.stringify(body)
+    })
+    .then(res => res.json())
+    .then(data => {
+      return data
+    })
+}
+
+export default { getWeapons, updateUserInVictory, buyWeapon }

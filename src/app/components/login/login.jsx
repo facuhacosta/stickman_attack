@@ -97,7 +97,7 @@ export function Login ({ type }) {
                 navigate('/signup', { replace: true })
               }}
               >
-                Don't have an account
+                Sign Up
               </a>
             </>
             )

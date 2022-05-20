@@ -10,4 +10,6 @@ router.get('/logIn/update', userController.update)
 
 router.post('/victory', userController.victory)
 
+router.post('/buyWeapon', userController.buyWeapon)
+
 module.exports = router
