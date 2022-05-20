@@ -1,6 +1,6 @@
 # Stick-man Atack
 
-## Index #section
+## Index
 
 - [introduction](#introduction)
 - [Installation](#installation)

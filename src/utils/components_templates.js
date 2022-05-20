@@ -1,7 +1,7 @@
 // component.jsx
 exports.component = name => {
-  name.toLowerCase();
-  const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+  name.toLowerCase()
+  const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1)
   return (
 `import React from 'react';
 import style from './${name}.module.scss';
@@ -12,7 +12,7 @@ export function ${capitalizedName}() {
     <div className={style.${name}}></div>
   );
 }`)
-};
+}
 
 // component.stories.jsx
 // exports.story = name => `import React from 'react';
@@ -26,8 +26,8 @@ export function ${capitalizedName}() {
 
 // component.test.jsx
 exports.test = name => {
-  name.toLowerCase();
-  const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+  name.toLowerCase()
+  const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1)
 
   return (
 `import React from 'react';
@@ -41,23 +41,23 @@ describe('${capitalizedName} Component', () => {\n
   });\n
   // Unit tests\n
 });`
-  );
-};
+  )
+}
 
 // index.js
 exports.barrel = name => {
-  name.toLowerCase();
-  const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+  name.toLowerCase()
+  const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1)
   return (
     `export { ${capitalizedName} } from './${name}';`
-  );
-};
+  )
+}
 
-//style.module.scss
+// style.module.scss
 
 exports.style = name => {
-  name.toLowerCase();
+  name.toLowerCase()
 
   return (`.${name} {\n\n}`
-  );
-};
+  )
+}

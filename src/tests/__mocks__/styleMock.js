@@ -15,5 +15,5 @@ module.exports = {
 */
 
 module.exports = {
-  description: "description"
+  description: 'description'
 }

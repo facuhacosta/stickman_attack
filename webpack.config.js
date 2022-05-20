@@ -1,18 +1,21 @@
+const path = require('path')
+
 module.exports = {
   entry: './src/app/index.jsx',
   output: {
-    path: __dirname + '/src/public',
-    filename: 'bundle.js'
+    path: path.join(__dirname, '/src/public'),
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [
       {
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
             presets: [
-              "@babel/preset-env",
-              "@babel/preset-react"
+              '@babel/preset-env',
+              '@babel/preset-react'
             ]
           }
         },
@@ -23,12 +26,12 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
-          "style-loader",
+          'style-loader',
           // Translates CSS into CommonJS
-          "css-loader",
+          'css-loader',
           // Compiles Sass to CSS
-          "sass-loader",
-        ],
+          'sass-loader'
+        ]
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|tiff|mp4|webm)$/,
@@ -36,9 +39,9 @@ module.exports = {
           'file-loader?name=assets/[name].[ext]'
         ]
       }
-    ],
+    ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx']
   }
 }

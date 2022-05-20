@@ -1,9 +1,9 @@
 const { Pool } = require('pg')
 
-if (process.env.NODE_ENV != 'DEVELOPMENT') {
-  require('dotenv').config();
+if (process.env.NODE_ENV !== 'DEVELOPMENT') {
+  require('dotenv').config()
 }
 
-const pool = new Pool();
+const pool = new Pool()
 
-module.exports = pool;
+module.exports = pool

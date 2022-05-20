@@ -1,0 +1,59 @@
+.login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > form {
+    background-color: grey;
+    width: 350px;
+    height: 425px;
+    border: solid 6px rgb(90, 90, 90);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 55px;
+    position: relative;
+    
+    & > h2 {
+      text-align: center;
+      font-size: 36px;
+      padding: 24px 0px;
+    }
+
+    & > input {
+      padding: 5px;
+      width: 85%;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      border: solid 4px transparent;
+      transition: all 0.3s linear;
+
+      &:focus {
+        border: 4px yellowgreen inset;
+        outline: none;
+        transition: all 0.2s linear;
+      }
+    }
+
+    & > p {
+      width: 85%;
+    }
+
+    & > div {
+      position: absolute;
+      bottom: 45px;
+    }
+    
+
+    & > a {
+      color: yellow;
+      cursor: pointer;
+      position: absolute;
+      bottom: 20px;
+
+    }
+  }
+}

@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import gif from '../../../public/assets/man.webm' //make it came from prop or context
 import { GameContext } from "../game-context/game-context";
-import { generateWave } from './create-wave-methods' 
+import { generateWave } from './create-wave' 
 
 export const FieldContext = createContext();
 
@@ -62,8 +62,6 @@ export const FieldProvider = (props) => {
   return (
     <FieldContext.Provider value={{
       enemies: enemies,
-      enemiesProb: enemiesProb,
-      enemies_proximity: enemies_proximity,
       points: points,
       setPoints: setPoints,
       castleHealth: castleHealth,
