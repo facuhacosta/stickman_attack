@@ -8,7 +8,7 @@ import ApiService from '../../services/Api'
 
 export function StickmanHandler () {
   const { enemies, wave, setWave, setPoints, points } = useContext(FieldContext)
-  const { setWaveNumber, setMoney, user, money, waveNumber } = useContext(GameContext)
+  const { setWaveNumber, setMoney, user, money, waveNumber, currentWeapon } = useContext(GameContext)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export function StickmanHandler () {
           key={enemy.key}
           id={enemy.key}
           enemy={enemies[enemy.type]}
-          damage_recived={25}
+          damage_recived={currentWeapon.damage}
           position={enemy.position}
           money_recived={enemies[enemy.type].money_recived}
           animation_delay={enemy.delay}

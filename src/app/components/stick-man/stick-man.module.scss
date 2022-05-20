@@ -4,6 +4,8 @@
   animation-fill-mode: forwards;
   width: 50px;
   visibility: hidden;
+  user-select: none;
+  
   &-video {
     width: 50px;
 
