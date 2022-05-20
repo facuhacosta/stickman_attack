@@ -1,6 +1,23 @@
 import React from 'react'
+import { Button } from '../button'
 import style from './weapon-card.module.scss'
-export function WeaponCard ({ weapon }) {
+import ApiService from '../../services/Api'
+
+export function WeaponCard ({ weapon, canBuy, token, updateState }) {
+  const handleBuy = async () => {
+    let response
+    try {
+      response = await ApiService.buyWeapon(token, { weapon })
+
+      if (response.username) {
+        updateState(response)
+      } else {
+        console.log(response.error)
+      }
+    } catch {
+    }
+  }
+
   return (
     <div className={style['weapon-card']}>
       <div className={style['weapon-image']}>
@@ -25,7 +42,7 @@ export function WeaponCard ({ weapon }) {
           <p>${weapon?.value}</p>
         </div>
       </section>
-      <button className={style['weapon-button']}>BUY</button>
+      {canBuy ? <Button text='BUY' onClick={() => handleBuy()} secondary /> : <p>purchased</p>}
     </div>
   )
 }
