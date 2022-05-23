@@ -26,6 +26,7 @@ userController.signup = async (req, res) => {
   try {
     rows = (await pool.query('SELECT * FROM "USERS" WHERE username = $1;', [data.username])).rows
   } catch (error) {
+    console.log(error);
     res.status(402).send({ error: 'error' })
   }
 
@@ -86,6 +87,7 @@ userController.logIn = async (req, res) => {
       token
     })
   } catch (error) {
+    console.log(error)
     res.json(error)
   }
 }
